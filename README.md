@@ -17,7 +17,7 @@ This codes are tested under PyTorch (1.7) with a single NVIDIA v100 GPU (418.56,
 ### Installation
 #### 1) clone repository
 ~~~bash
-git clone 'link will be available soon'
+git clone https://github.com/yuniw18/Joint_360depth.git
 ~~~
 #### 2) Set up dependencies
 Using Anaconda virtual env, environment can be set as follows.
