@@ -5,7 +5,8 @@ Some of our codes are based on the following repositories: [EBS](https://github.
 
 We'd like to thank the authors and users providing the codes.
 
-Due to personal reasons, other parts of the codes will be uploaded in a next few weeks.
+Other parts of the codes will be uploaded in December (12/2021).
+
 ## Changelog
 [2021-10-09 ] Release inference code and pre-trained models
 
