@@ -74,7 +74,7 @@ python3 inference_main.py --data_path [image path] --output_path [path where res
 ```
 @article{yun2021improving,
   title={Improving 360 Monocular Depth Estimation via Non-local Dense Prediction Transformer and Joint Supervised and Self-supervised Learning},
-  author={Yun, IlWi and Lee, Hyuk-Jae and Rhee, Chae Eun},
+  author={Yun, Ilwi and Lee, Hyuk-Jae and Rhee, Chae Eun},
   journal={arXiv preprint arXiv:2109.10563},
   year={2021}
 }
