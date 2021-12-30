@@ -1,0 +1,23 @@
+## Evaluation on 3D60 (Stanford3D) dataset (Table 1 in paper)
+
+## Use --pre_crop option only for the 'Hres' model
+#python3 evaluate_main.py --method JointDepth --eval_data 3D60 --data_path ./3D60_split/Stanford3D_test_sample.txt --checkpoint_path ./pre_trained/Joint_3D60_Hres.pth --pre_crop 
+
+#python3 evaluate_main.py --method Bifuse --eval_data 3D60 --data_path ./3D60_split/Stanford3D_test_sample.txt  --checkpoint_path ./pre_trained/BiFuse_Pretrained.pkl 
+
+#python3 evaluate_main.py --method Hohonet --eval_data 3D60 --data_path ./3D60_split/Stanford3D_test_sample.txt --checkpoint_path ./pre_trained/generator-hohos2d.pkl --cfg ./previous_works/HoHoNet/config/s2d3d_depth/HOHO_depth_dct_efficienthc_TransEn1.yaml 
+
+#python3 evaluate_main.py --method Omnidepth --eval_data 3D60 --data_path ./3D60_split/Stanford3D_test_sample.txt  --checkpoint_path ./pre_trained/rectnet.pth 
+
+#python3 evaluate_main.py --method SvSyn --eval_data 3D60 --data_path ./3D60_split/Stanford3D_test_sample.txt  --checkpoint_path ./pre_trained/ud.pt 
+
+
+## Evaluation on 3D60 (Stanford3D) dataset (Table 3 in paper)
+#python3 evaluate_main.py --method JointDepth --eval_data 3D60 --data_path ./3D60_split/Stanford3D_test_sample.txt  --checkpoint_path ./pre_trained/Joint_3D60_Fres.pth 
+
+
+## Evaluation on Stanford dataset (Table 2 in paper)
+#python3 evaluate_main.py --method JointDepth  --checkpoint_path ./checkpoint.pth --data_path ./Stanford_test/ --eval_data Stanford 
+
+
+
