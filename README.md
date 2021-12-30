@@ -5,7 +5,8 @@ Some of our codes are based on the following repositories: [EBS](https://github.
 
 We'd like to thank the authors and users providing the codes.
 
-Due to personal reasons, other parts of the codes will be uploaded in a next few weeks.
+Other parts of the codes will be uploaded in December (12/2021).
+
 ## Changelog
 [2021-10-09 ] Release inference code and pre-trained models
 
@@ -73,7 +74,7 @@ python3 inference_main.py --data_path [image path] --output_path [path where res
 ```
 @article{yun2021improving,
   title={Improving 360 Monocular Depth Estimation via Non-local Dense Prediction Transformer and Joint Supervised and Self-supervised Learning},
-  author={Yun, IlWi and Lee, Hyuk-Jae and Rhee, Chae Eun},
+  author={Yun, Ilwi and Lee, Hyuk-Jae and Rhee, Chae Eun},
   journal={arXiv preprint arXiv:2109.10563},
   year={2021}
 }
