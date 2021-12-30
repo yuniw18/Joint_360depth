@@ -78,7 +78,7 @@ To reproduce the results in the paper, find the pre-trained models of each metho
 * Pre-trained Hohonet model : [s2d3d_depth_HOHO_depth_dct_efficienthc_TransEn1/ep60.pth](https://github.com/sunset1995/HoHoNet) (for Stanford3D,Stanford data), [mp3d_depth_HOHO_depth_dct_efficienthc_TransEn1/ep60.pth](https://github.com/sunset1995/HoHoNet) (for others)
 * Pre-trained Our model : see above
 
-#### 2) Go to evaluate folder & run the following command
+#### 2) Prepare the test dataset
 Download the 3D60 / Stanford dataset, and create train/val/test split following their instructuions.   
 We only use Center view for 3D60 dataset.   
 Refer to the sample test split of Stanford3D data in 3D60_split folder.
