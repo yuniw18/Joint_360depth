@@ -79,9 +79,30 @@ To reproduce the results in the paper, find the pre-trained models of each metho
 * Pre-trained Our model : see above
 
 #### 2) Prepare the test dataset
-Download the 3D60 / Stanford dataset, and create train/val/test split following their instructuions.   
-We only use Center view for 3D60 dataset.   
-Refer to the sample test split of Stanford3D data in 3D60_split folder.
+* [3D60 data](https://github.com/VCL3D/3D60) (Stanford3D, Matterport3D, SunCG): Create train/val/test split following their instructuions.   We only use Center view for 3D60 dataset.   Refer to the sample test split of Stanford3D data in 3D60_split folder.
+* [Stanford data](https://github.com/alexsax/2D-3D-Semantics): Create train/val/test split following their instructuions. Data folder should be constructed as below. Refer to their repositoiries for more details.
+
+```bash
+├── Stanford
+   ├── area_n
+        ├── rgb
+            ├── image.png
+        ├── depth
+            ├── depth.png
+       
+``` 
+* [Structure3D](https://github.com/bertjiazheng/Structured3D) : Create train/val/test split following their instructuions. Data folder should be constructed as below. Refer to their repositoiries for more details.
+
+```bash
+├── Structure3D
+   ├── scene_n
+        ├── 2D_rendering
+            ├── room_number
+                ├── panorama
+                    ├── full
+                        ├── rgb_rawlight.png
+                        ├── depth.png
+``` 
 
 #### 3) Go to evaluate folder & run the following command
 For detailed command options, please refer to `evaluate_main.py` and `eval_script`.
@@ -97,6 +118,8 @@ python3 evaluate_main.py --method [method to be tesetd]  --eval_data [test_data_
 - [ ] Code for training
 - [ ] Video set used in the paper
 
+Since the video data with original resolution is big, we are now concerned about a efficient way to upload it. We will uplaod the video data with training codes soon.
+
 ## Citation
 ```
 @article{yun2021improving,
@@ -107,4 +130,5 @@ python3 evaluate_main.py --method [method to be tesetd]  --eval_data [test_data_
 }
 ``` 
 ## License
-MIT License
+Our contributions are released under the MIT license. For the codes of the otehr works, refer to their repositories.
+
