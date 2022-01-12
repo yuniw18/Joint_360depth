@@ -10,10 +10,12 @@ This repository contains the code of the paper
 Some of our codes are based on the following repositories: [EBS](https://github.com/gdlg/panoramic-depth-estimation), [monodepth2](https://github.com/nianticlabs/monodepth2), [Omnidepth](https://github.com/meder411/OmniDepth-PyTorch), [DPT](https://github.com/isl-org/DPT), [Non-local neural network](https://github.com/AlexHex7/Non-local_pytorch) and baselines ([HoHoNet](https://github.com/sunset1995/HoHoNet),  [Bifuse](https://github.com/Yeh-yu-hsuan/BiFuse), [SvSyn](https://github.com/VCL3D/SphericalViewSynthesis), [Omnidepth](https://github.com/meder411/OmniDepth-PyTorch)).  
 We'd like to thank the authors and users providing the codes.
 
+Since this repo is managed/verified by myself, there may be some parts not fully checked in detail when re-organizing the codes for publication. Let me know if there are any problems. 
+
 ## Changelog
 [2021-10-09 ] Release inference code and pre-trained models   
-[2021-12-30 ] Release code for evaluation and additional pre-trained models
-
+[2021-12-30 ] Release code for evaluation and additional pre-trained models  
+[2022-01-12 ] Release code for training and video data (simple version)
 ## 1. Setup
 
 This codes are tested under PyTorch (1.7) with a single NVIDIA v100 GPU (418.56, cuda 10.0).
@@ -111,14 +113,43 @@ For detailed command options, please refer to `evaluate_main.py` and `eval_scrip
 cd evaluate
 python3 evaluate_main.py --method [method to be tesetd]  --eval_data [test_data_name] --data_path [test_data_path] --checkpoint_path [checkpoint_path]
 ~~~
+## 4. Training
+To train the network, follow the instructions below.
+
+#### 1) Download pre-trained models
+For depth network, we recommend to use the model trained with Structure3D dataset as a starting point (Super_S3D_Fres or Joint_S3D_Fres).
+
+For pose network, download the pre-trained models from this [link](https://drive.google.com/drive/folders/1IcyB1tgvs_U2KgzAVM9Qo861RmKNCnUd?usp=sharing). For more details about pose network, refer this [discussions](./README_discussion.md) 
+
+#### 2) Prepare the training data
+Download the dataset below you want to use, and split the train/val/test set following the instructinos of each github repo as stated above.
+
+* [3D60 data](https://github.com/VCL3D/3D60)
+* [Stanford data](https://github.com/alexsax/2D-3D-Semantics)
+* [Structure3D](https://github.com/bertjiazheng/Structured3D)
+
+Recently, [Pano3D](https://github.com/VCL3D/Pano3D), which is an extended version of 3D60 dataset, is released. Consider to use Pano3D, but note that it is not used for experiments in our paper.
+
+Since the video data with original resolution is huge, we provide the simplified version of video data (low resolution, some omitted scenes) for a while. When we reproduce the restuls with the data below, comparable or even better restuls were obtained.  
+* [Video data (simple version)](https://drive.google.com/drive/folders/1IcyB1tgvs_U2KgzAVM9Qo861RmKNCnUd?usp=sharing)
+
+
+#### 3) Check the training options & run the command below
+We use smaller learning rate for stable training.
+For detailed training options, refer to `main.py` and `train_script`.
+
+~~~bash
+python3 main.py --train_data [dataset of supervised learning] --Video --data_path [test_data_path] --video_path [video_data_path] --checkpoint_path [checkpoint_path] --Continue --Crop_data
+~~~
+## Discussions
+* [Discussions on training](./README_discussion.md) 
 
 ## To do list
 - [x] Code for inference  
 - [x] Code for evaluation 
-- [ ] Code for training
-- [ ] Video set used in the paper
-
-Since the video data with original resolution is big, we are now concerned about a efficient way to upload it. We will uplaod the video data with training codes soon.
+- [x] Code for training
+- [x] Video data (simple version)
+- [ ] Video data (full version) 
 
 ## Citation
 ```
@@ -130,5 +161,6 @@ Since the video data with original resolution is big, we are now concerned about
 }
 ``` 
 ## License
-Our contributions are released under the MIT license. For the codes of the otehr works, refer to their repositories.
+Our contributions on codes are released under the MIT license. For the codes of the otehr works, refer to their repositories.
 
+The video data should only be used for private/research purposes, and not for any commercial purposes.
