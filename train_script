@@ -1,0 +1,14 @@
+# Table 1
+#python3 main.py --train_data 3D60 --Video --model_name ./checkpoints/Joint_depth_Table1 --pretrained_gen_path Joint_3D60_Hres.pkl --pretrained_posenet_path ./posenet.pkl --Video_path ./Video_simple_version --pre_crop --super_crop_ratio 0.5  --self_loss_weight 0.3 --eval_crop_ratio 0.5 
+
+# Table 2
+#python3 main.py --train_data Stanford --Video --model_name ./checkpoints/Joint_depth_Table2 --pretrained_gen_path Joint_3D60_Fres.pkl --pretrained_posenet_path ./posenet.pkl --Video_path ./Video_simple_version --post_crop  --batch_size 2 --Stanford_path ../../Stanford_train --lr 0.00002
+
+# Table 3
+#python3 main.py --train_data 3D60 --Video --model_name ./checkpoints/Joint_depth_Table3 --pretrained_gen_path Joint_3D60_Fres.pkl --pretrained_posenet_path ./posenet.pkl --Video_path ./Video_simple_version --post_crop --batch_size 2 --super_resize_ratio 2 --lr 0.00002 
+
+
+# Training for Structure3D 
+#python3 main.py --train_data Structure3D --Video --model_name ./checkpoints/Joint_depth_Structure3D --pretrained_gen_path Joint_S3D_Fres.pkl --pretrained_posenet_path ./posenet.pkl --Video_path ./Video_simple_version --post_crop --batch_size 2 --S3D_path ../../Structure3D/Structured3D --lr 0.00002 --self_loss_weight 0.05
+
+#
