@@ -139,7 +139,7 @@ We use smaller learning rate for stable training.
 For detailed training options, refer to `main.py` and `train_script`.
 
 ~~~bash
-python3 main.py --train_data [dataset of supervised learning] --Video --data_path [test_data_path] --video_path [video_data_path] --checkpoint_path [checkpoint_path] --Continue --Crop_data
+python3 main.py --train_data [dataset of supervised learning] --Video --Video_path [video_data_path] --super_resize_ratio [resize data ratio for supervised learning] --lr [learning_rate] --post_crop 
 ~~~
 ## Discussions
 * [Discussions on training](./README_discussion.md) 
