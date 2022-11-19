@@ -15,7 +15,16 @@ Since this repo is managed/verified by myself, there may be some parts not fully
 ## Changelog
 [2021-10-09 ] Release inference code and pre-trained models   
 [2021-12-30 ] Release code for evaluation and additional pre-trained models  
-[2022-01-12 ] Release code for training and video data (simple version)
+[2022-01-12 ] Release code for training and video data (simple version)    
+[2022-11-19 ] Release video data (full version)
+
+## 0. Demo 
+
+<img src="./Assets/Demo.gif"  >
+
+The 4-DOF (x,y,z-axis rotation + x-axis movements) interactive image-based VR can be easily made by only using a provided data and the corresponding depths (extracted via the pre-trained models of this repo). The interaction between objects in the scene and virtual object (a bascketball) is calculated based on the corresponding depths. 
+
+
 ## 1. Setup
 
 This codes are tested under PyTorch (1.7) with a single NVIDIA v100 GPU (418.56, cuda 10.0).
@@ -130,8 +139,24 @@ Download the dataset below you want to use, and split the train/val/test set fol
 
 Recently, [Pano3D](https://github.com/VCL3D/Pano3D), which is an extended version of 3D60 dataset, is released. Consider to use Pano3D, but note that it is not used for experiments in our paper.
 
-Since the video data with original resolution is huge, we provide the simplified version of video data (low resolution, some omitted scenes) for a while. When we reproduce the restuls with the data below, comparable or even better restuls were obtained.  
-* [Video data (simple version)](https://drive.google.com/drive/folders/1IcyB1tgvs_U2KgzAVM9Qo861RmKNCnUd?usp=sharing)
+**[Updated]**
+
+Here, we provide Video data (simple version) & Video data (full version) as shown below. According to the purpose, use more appropriate one.
+
+* [Video data (simple version)](https://drive.google.com/drive/folders/1IcyB1tgvs_U2KgzAVM9Qo861RmKNCnUd?usp=sharing) : Video data (simple version) contians a set of images with 256x512 resolutions. Because the experiment & codes were written based on the image resolutions of Video data (simple version), **we recommend to use Video data (simple version) for the user who want to reproduce the experiments quickly**. When we reproduce the restuls with this Video data (simple version), comparable or even better restuls were obtained.  
+
+
+* Video data (full version) : Video data (full version) is a extended version of Video data (simple version). Video data (full version) contains more various scenes with higher resolutions.  The downloaded link & more detailed descriptions can be found in this [repository](https://github.com/Digital-System-Design-Lab/360_Lightfield_Dataset), where the downloaded folder is constructed as below. For the user who just want to reproduce the experiments in the paper, download the set of images in **360_lightfield/Column** and **360_video/Column** folder, and resize them to 256x512 resolutions. To use images with higher resolutions for self-supervised learning, you may need to modify some parts of the codes  because the codes of this repo were written based on 256x512 resolutions for self-supervised learning. 
+
+```bash
+├── 360_lightfield_data
+         ├── 360_lightfield
+                        ├── Column 
+                        ├── Row
+         ├── 360_video
+                        ├── Column 
+
+``` 
 
 
 #### 3) Check the training options & run the command below
@@ -149,18 +174,20 @@ python3 main.py --train_data [dataset of supervised learning] --Video --Video_pa
 - [x] Code for evaluation 
 - [x] Code for training
 - [x] Video data (simple version)
-- [ ] Video data (full version) 
+- [x] Video data (full version) 
 
 ## Citation
 ```
-@article{yun2021improving,
-  title={Improving 360 Monocular Depth Estimation via Non-local Dense Prediction Transformer and Joint Supervised and Self-supervised Learning},
+@inproceedings{yun2022improving,
+  title={Improving 360 monocular depth estimation via non-local dense prediction transformer and joint supervised and self-supervised learning},
   author={Yun, Ilwi and Lee, Hyuk-Jae and Rhee, Chae Eun},
-  journal={arXiv preprint arXiv:2109.10563},
-  year={2021}
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={36},
+  number={3},
+  pages={3224--3233},
+  year={2022}
 }
-``` 
+```
 ## License
 Our contributions on codes are released under the MIT license. For the codes of the otehr works, refer to their repositories.
 
-The video data should only be used for private/research purposes, and not for any commercial purposes.
