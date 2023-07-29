@@ -55,7 +55,8 @@ class Inference(object):
                 inputs = inputs[:,:,height//4: height - height//4,:]
 
             ## Forward pass ##
-            depth = self.net(inputs)
+            with torch.no_grad(): # Not storing gradients to save RAM
+                depth = self.net(inputs)
 
             ## Convert depth to disparity ## 
             max_value = torch.tensor([0.000005]).cuda()
