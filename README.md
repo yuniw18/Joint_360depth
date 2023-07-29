@@ -24,6 +24,7 @@ Since this repo is managed/verified by myself, there may be some parts not fully
 
 The 4-DOF (x,y,z-axis rotation + x-axis movements) interactive image-based VR can be easily made by only using a provided data and the corresponding depths (extracted via the pre-trained models of this repo). The interaction between objects in the scene and virtual object (a bascketball) is calculated based on the corresponding depths. 
 
+To quickly try the model, have a look at [this Colab Notebook](https://colab.research.google.com/drive/1S1Bb0KCoq9J-8IJGy-rhbg1pfkMHDAGq?usp=sharing) contributed by [Rodo](https://github.com/rodonguyen).
 
 ## 1. Setup
 
