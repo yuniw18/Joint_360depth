@@ -88,7 +88,7 @@ class EQUI_loader(data.Dataset):
             try:
                 left_path = self.left_image_paths[index]
                 right_path = self.left_image_paths[index + diff]
-                if left_path.split('/')[5] != right_path.split('/')[5]:
+                if left_path.split('/')[5] != right_path.split('/')[5]: # Redesignate 'n' in file.split('/')[n] according to your folder location
                     left_path = self.left_image_paths[index]
                     right_path = self.left_image_paths[index - diff]
             except:
