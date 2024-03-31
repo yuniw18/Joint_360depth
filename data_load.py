@@ -33,7 +33,7 @@ class EQUI_loader(data.Dataset):
 
                 dir_sub_list = []
                 for sub_dir_path in dir_path:
-                    dir_sub_list.append([file for file in sub_dir_path if file.split('/')[5].startswith('Col')])
+                    dir_sub_list.append([file for file in sub_dir_path if file.split('/')[5].startswith('Col')]) # Redesignate 'n' in file.split('/')[n] according to your folder location
                     dir_sub_list.sort()  
     
                 # Until Column 
