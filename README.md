@@ -12,6 +12,8 @@ We'd like to thank the authors and users providing the codes.
 
 Since this repo is managed/verified by myself, there may be some parts not fully checked in detail when re-organizing the codes for publication. Let me know if there are any problems. 
 
+You may also interested in **EGformer: Equirectangular geometry-biased transformer for 360 depth estimation, ICCV23**  ([paper](https://openaccess.thecvf.com/content/ICCV2023/html/Yun_EGformer_Equirectangular_Geometry-biased_Transformer_for_360_Depth_Estimation_ICCV_2023_paper.html) | [code](https://github.com/yuniw18/EGformer)).
+
 ## Changelog
 [2021-10-09 ] Release inference code and pre-trained models   
 [2021-12-30 ] Release code for evaluation and additional pre-trained models  
