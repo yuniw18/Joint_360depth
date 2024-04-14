@@ -1,26 +1,16 @@
 import torch
-import torch.nn.functional as F
-import time
 import os
-import math
-import shutil
-import os.path as osp
 import matplotlib.pyplot as plt
-import torchvision
 from DPT.dpt.models import DPTDepthModel
-from DPT.dpt.transforms import Resize, NormalizeImage, PrepareForNet
 import matplotlib as mpl
 import matplotlib.cm as cm
-import argparse
-import importlib
 import numpy as np
 from imageio import imread
 import skimage
 import skimage.transform
-import cv2
+
 class Inference(object):
-    def __init__(self,
-                 config):
+    def __init__(self, config):
         self.config = config
         
     def post_process_disparity(self,disp):
@@ -42,7 +32,7 @@ class Inference(object):
         self.net.cuda()
         self.net.eval()
 
-        ## load images to be evaluated
+        ## load images to be evaluated ##
         image_list = os.listdir(self.config.data_path)
         eval_image = []
         for image_name in image_list:
@@ -50,10 +40,8 @@ class Inference(object):
        
         
         for index,image_path in enumerate(eval_image):
-            print(
-               'Inference {}/{}'.format(index, len(
-                        eval_image)),
-                    end='\r')
+            print('Inference {}/{}'.format(index, 
+                                len(eval_image)), end='\r')
              
             input_image = (imread(image_path).astype("float32")/255.0)
             
@@ -66,8 +54,9 @@ class Inference(object):
             if not self.config.Input_Full:
                 inputs = inputs[:,:,height//4: height - height//4,:]
 
-            ## Forward pass  ##
-            depth = self.net(inputs)
+            ## Forward pass ##
+            with torch.no_grad(): # Not storing gradients to save RAM
+                depth = self.net(inputs)
 
             ## Convert depth to disparity ## 
             max_value = torch.tensor([0.000005]).cuda()
@@ -84,6 +73,3 @@ class Inference(object):
             save_name = eval_name +'_disp' '.png'        
     
             plt.imsave(os.path.join(self.config.output_path,save_name ), disp_pp, cmap='magma')
-
-
-
